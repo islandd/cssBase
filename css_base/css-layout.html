@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+</html>
+
+<!---------
+该文件说明内容:
+1.流式布局(百分比布局)
+
+2.移动WEB开发rem适配布局导航
+em: em是相对于父元素的字体大小来说的
+rem: rem(root em)是一个相对单位，类似于em，em是父元素字体大小
+不同的是rem的基准是相对于html元素的字体大小
+比如,根元素(html)设置font-size=12px;非根元素设置width:2rem。则换成px表示就是24px;
+
+媒体查询
+@media screen and (max-width: 800px) {
+  body {
+  }
+}
+@media screen and (min-width: 540px) and (max-width: 969px) {
+
+}
+<link rel="stylesheet" href="style320.css" media="screen and (min-width: 320px)">
+<link rel="stylesheet" href="style640.css" media="screen and (min-width: 640px)">
+
+
+rem实际开发适配方案
+rem+媒体查询+less技术
+设计稿
+iphone678  750px
+Android  常见320px 360px 375px 384px 400px 414px 500px 720px,大部分4.7~5寸的安卓设备为720px
+
+元素大小取值方法
+最后的公式: 页面元素的rem值 = 页面元素值(px) / (屏幕宽度 / 划分的份数)
+屏幕宽度/划分的份数 就是html font-size的大小
+或者: 页面元素的rem值 = 页面元素值(px)/html font-size字体大小
+
+less 文件
+// 我们此次定义的划分的份数为: 15
+@no: 15;
+@media screen and (min-width: 320px) {
+   html {
+      font-size: 320px / @no;
+   }
+}
+
+@media screen and (min-width: 360px) {
+   html {
+      font-size: 360px / @no;
+   }
+}
+------------>

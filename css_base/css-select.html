@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+  .demo div:nth-child(1) {
+    color: red;
+  }
+  .demo div:nth-of-type(1) {
+    color: red;
+  }
+</style>
+<body>
+ <section class="demo">
+   <p class="demo1">1</p>
+   <div class="demo11">2</div>
+   <div class="demo12">3</div>
+ </section>
+</body>
+</html>
+
+<!---------
+该文件说明内容:
+1.后代选择器: div li
+2.子选择器: div > li(亲儿子)
+3.并集选择器: div,li
+4.兄弟选择器 div + h1 ,可以选择紧接在另一个元素后的元素，且二者有相同的父元素，上面例子生效的就是h1,而且只能用标签表示哈
+5.伪类选择器 用于向某些选择器添加特殊的效果，比如给链接添加特殊效果，或选择第1个，第n个元素。伪类选择器书写最大的特点就是用冒号:表示
+
+属性选择器
+选择符         简介
+E[att]        选择具有att属性的E元素
+E[att="val"]  选择具有att属性且属性值等于val的E元素
+E[att^="val"] 匹配具有att属性且值是val开头的E元素
+E[att$="val"] 匹配具有att属性且值是val结尾的E元素
+E[att*="val"] 匹配具有att属性且值含有val的E元素
+
+结构伪类选择器
+选择器         简介
+E:first-child  匹配父元素的第一个子元素E
+E:last-child   匹配父元素的最后一个E元素
+E:nth-child(n) 匹配父元素的第n个子元素E
+E:first-of-type 指定类型E的第一个
+E:last-of-type 指定类型E的最后一个
+E:nth-of-type(n) 指定类型E的第n个
+
+nth-child和nth-of-type的区别是?
+nth-child会把所有的盒子都排列序号，执行的时候首先看 :nth-child(1)之后回去看前面的div
+nth-of-type会把指定的盒子都排列序号，执行的时候首先看div指定元素，之后回去看:nth-of-type(1)
+
+------------>

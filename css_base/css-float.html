@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  .demo {
+    border: 1px solid blue;
+  }
+
+  .demo:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+
+  .demo11, .demo12, .demo13 {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+  }
+
+  .demo4 {
+    width: 100%;
+    height: 200px;
+    background-color: #000;
+  }
+</style>
+<body>
+<div>
+  <div class="demo">
+    <div class="demo11"></div>
+    <div class="demo12"></div>
+    <div class="demo13"></div>
+  </div>
+  <div class="demo4"></div>
+</div>
+</body>
+</html>
+
+<!-------
+该文件说明内容:
+1.如果要将3个块级元素放在同一行，可以使用display: inline-block,但是中间会出现空白的间隙，而且这个间隙的大小未知，如果想实现中间没有间隙则可以使用浮动--float
+浮动(float):
+设置浮动(float)的元素最重要特性:
+1.脱离标准普通流的控制(浮)移动到指定位置(动)，(俗称脱标)
+2.浮动的盒子不再保留原先的位置
+
+浮动布局注意事项
+1. 浮动和标准流的父盒子搭配
+2. 一个元素浮动了，理论上其余兄弟元素也要浮动
+3. 浮动的盒子只会影响浮动盒子后面的标准流，不会影响前面的标准流
+
+为什么清除浮动
+1.由于父级盒子很多情况下，方便给高度，但是子盒子浮动又不占有位置，最后父级盒子高度为0时，就会影响下面的标准流盒子。
+
+清除浮动
+1.额外标签法也称为隔墙法，是W3C推荐的做法。
+额外标签法会在浮动元素末尾添加一个空的标签(块级元素)，例如<div style="clear: both"></div>,或者其他标签(如<br/>等)
+优点: 通俗易懂，书写方便
+缺点: 添加许多个无意义的标签，结构化比较差
+2.父级添加overflow
+可以给父级添加overflow属性，将其属性值设置为hidden,auto或scroll
+优点: 代码简洁
+缺点: 无法显示溢出的部分
+
+首先我们要知道怎样创建BFC。一个BFC可以被显式触发，只需满足以下条件之一：
+float的值不为none；
+overflow的值不为visible；
+position的值为fixed / absolute；
+display的值为table-cell / table-caption / inline-block / flex / inline-flex。
+
+1、BFC布局规则
+内部的块级元素会在垂直方向，一个接一个地放置；
+块级元素垂直方向的距离由margin决定。属于同一个BFC的两个相邻的块级元素会发生margin合并，不属于同一个BFC的两个相邻的块级元素不会发生margin合并；
+每个元素的margin box的左边，与包含border box的左边相接触（对于从左往右的格式化，否则相反）。即使存在浮动也是如此；
+BFC的区域不会与float box重叠；
+BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素；外面的元素也不会影响到容器里面的子元素；
+计算BFC的高度时，浮动元素也参与计算。
+
+3.:after伪元素法
+:after方式是额外标签法的升级版。也是给父元素添加,效果就是给父元素添加一个子元素，放在最后
+--------->
